@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Arco Home - Thiết kế và thi công trọn gói</title>
+
+</head>
+
+<body>
+    <header>
+        <!-- Box 1: Thông tin tên công ty & hotline -->
+        <div class="top-header">
+            <div class="company-name">ARCO HOME Design and Build > Công trình</div>
+            <div class="hotline">Hotline: 0987.209.885</div>
+        </div>
+
+        <!-- Box 2: Logo + Điều hướng (floating) -->
+        <div class="nav-bar">
+            <div class="logo">ARCO HOME</div>
+            <div class="nav-fix">
+                <nav class="main-nav">
+                    <a href="./index.html">Trang chủ</a>
+                    <a href="./about.html">Giới thiệu</a>
+                    <a style="color:#d4af37;" href="./project.html">Công trình</a>
+                    <a href="./services.html">Báo giá</a>
+                    <a href="./forum.html">Diễn đàn</a>
+                </nav>
+            </div>
+        </div>
+        </div>
+        <!-- Scrip để nav bar luôn cố định ở đầu trang -->
+        <script>
+            const navbar = document.querySelector('.nav-bar');
+            const stickyOffset = navbar.offsetTop;
+
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset >= stickyOffset) {
+                    navbar.classList.add('fixed');
+                } else {
+                    navbar.classList.remove('fixed');
+                }
+            });
+        </script>
+
+    </header>
+    <!-- PHẦN THÂN TRANG CÔNG TRÌNH -->
+    <div class="project-banner">
+        <h1>Công trình</h1>
+    </div>
+
+    <div class="project-list">
+        <!-- Dự án sẽ được render bằng JavaScript -->
+    </div>
+
+    <div class="load-more-container">
+        <button id="loadMore" onclick="loadMoreProjects()">Xem thêm</button>
+    </div>
+
+    <!-- Link đến file JS -->
+    <script src="cong-trinh.js"></script>
+    <!-- Section 3: Form đặt lịch tư vấn -->
+    <section id="consultation-id" class="consultation-section">
+        <div class="consultation-overlay">
+            <div class="consultation-form-container">
+                <h2>ĐẶT LỊCH TƯ VẤN</h2>
+                <p class="subtitle">Vui lòng để lại thông tin để chúng tôi được phục vụ bạn</p>
+                <form class="consultation-form"
+                    action="https://script.google.com/macros/s/AKfycbzOqbH-6Aunu24LTVkBGuDrCqM2knmTmtkY8ilXMJ_oFV9RIrjKX7RlKiZrSugQWvCd/exec"
+                    method="POST">
+                    <div class="form-row">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="phone">Tel:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="message">Request:</label>
+                        <textarea id="message" name="message" rows="3" required></textarea>
+                    </div>
+                    <button type="submit">GỬI ĐI</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector(".consultation-form");
+            const inputs = form.querySelectorAll("input, textarea");
+            const submitBtn = form.querySelector("button[type='submit']");
+
+            function checkFormFilled() {
+                let allFilled = true;
+                inputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        allFilled = false;
+                    }
+                });
+
+                if (allFilled) {
+                    submitBtn.disabled = false;
+                    submitBtn.classList.add("active");
+                } else {
+                    submitBtn.disabled = true;
+                    submitBtn.classList.remove("active");
+                }
+            }
+
+            inputs.forEach(input => {
+                input.addEventListener("input", checkFormFilled);
+            });
+
+            checkFormFilled(); // kiểm tra ngay từ đầu
+        });
+    </script>
+    <!-- Reset form và hiển thị thông báo -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector(".consultation-form");
+            const inputs = form.querySelectorAll("input, textarea");
+            const submitBtn = form.querySelector("button[type='submit']");
+
+            function checkFormFilled() {
+                let allFilled = true;
+                inputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        allFilled = false;
+                    }
+                });
+
+                if (allFilled) {
+                    submitBtn.disabled = false;
+                    submitBtn.classList.add("active");
+                } else {
+                    submitBtn.disabled = true;
+                    submitBtn.classList.remove("active");
+                }
+            }
+
+            inputs.forEach(input => {
+                input.addEventListener("input", checkFormFilled);
+            });
+
+            checkFormFilled();
+
+            // Gửi dữ liệu mà không tải lại trang
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                fetch(form.action, {
+                    method: "POST",
+                    body: new FormData(form)
+                })
+                    .then(response => {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Gửi thành công!',
+                            text: 'Thông tin của bạn đã được gửi.',
+                            confirmButtonText: 'Đóng',
+                        });;
+                        form.reset();
+                        checkFormFilled();
+                    })
+                    .catch(error => {
+                        alert("Đã xảy ra lỗi khi gửi. Vui lòng thử lại.");
+                        console.error(error);
+                    });
+            });
+        });
+    </script>
+    <!-- Section Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>CÔNG TY TNHH ARCO HOME VIỆT NAM</h3>
+                <p>Địa chỉ: Tòa SA3, Vinhomes Smart City, Tây Mỗ, Nam Từ Liêm, Hà Nội</p>
+                <p>Hotline: <a href="tel:0987209885" style="color:#d4af37;">0987 209 885</a></p>
+                <p>Email: <a href="mailto:xaydungarcohome@gmail.com"
+                        style="color: #d4af37;">xaydungarcohome@gmail.com</a></p>
+                <p style="margin-top: 10px; font-size: 14px; color: #aaa;">&copy; 2025 ARCO HOME. All rights reserved.
+                </p>
+            </div>
+
+            <div class="footer-map">
+                <div class="footer-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3065.152943030669!2d105.73464477431641!3d21.002943980639916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134539b0b812f63%3A0x66e49b701bb252df!2sTo%C3%A0%20SA3%20-%20The%20Sakura!5e1!3m2!1svi!2s!4v1754057481864!5m2!1svi!2s"
+                        width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="social-connect">
+                <p>Kết nối với chúng tôi:</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Buttons -->
+        <div class="floating-button call-button">
+            <a href="tel:0987209885">LIÊN HỆ NGAY</a>
+        </div>
+        <div class="floating-button consult-button">
+            <a href="#consultation-id">ĐẶT LỊCH TƯ VẤN</a>
+        </div>
+    </footer>
+    <!-- Căn giữa trang khi cuộn đến vị trí -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const consultBtn = document.querySelector('.consult-button a');
+            const targetSection = document.querySelector('#consultation-id');
+
+            consultBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const offset = window.innerHeight / 2 - targetSection.offsetHeight / 2;
+                const y = targetSection.getBoundingClientRect().top + window.scrollY - offset;
+
+                window.scrollTo({
+                    top: y,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

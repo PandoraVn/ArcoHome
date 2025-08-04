@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Arco Home - Dự án 2</title>
+</head>
+
+<body>
+    <header>
+        <!-- Box 1: Logo -->
+        <div class="nav-bar">
+            <div class="nav-title">Project Design No.2</div>
+            <div class="logo">ARCO HOME</div>
+            <div class="hotline">Hotline: 0987.209.885</div>
+
+        </div>
+    </header>
+    <!-- Section Thông tin dự án -->
+    <div class="project-container">
+        <div class="project-sidebar">
+            <div class="project-navigation">
+                <button class="nav-arrow left" onclick="goToPreviousProject()">&#10094;</button>
+                <span class="project-title">XEM DỰ ÁN KHÁC</span>
+                <button class="nav-arrow right" onclick="goToNextProject()">&#10095;</button>
+            </div>
+
+            <div class="project-info">
+                <h1>Dự án: Biệt thự hiện đại tại Vinhomes</h1>
+                <p><strong>Vị trí:</strong> Vinhomes Riverside, Hà Nội</p>
+                <p><strong>Diện tích:</strong> 250m²</p>
+                <p><strong>Phong cách:</strong> Hiện đại tối giản</p>
+                <p><strong>Mô tả tổng quan:</strong></p>
+                <p>Dự án được thiết kế theo phong cách hiện đại với tông màu trung tính, kết hợp các vật liệu cao cấp
+                    như đá
+                    tự nhiên, kính và gỗ óc chó. Mục tiêu của thiết kế là tạo ra một không gian sống sang trọng nhưng
+                    vẫn
+                    gần gũi và ấm cúng.</p>
+                <hr>
+                <p style="margin-top: 10px; font-size: 14px; color: #000;">&copy; 2025 Design by ARCO HOME.
+                </p>
+            </div>
+        </div>
+
+        <div class="project-gallery">
+            <!-- Ảnh 1-3 -->
+            <div class="gallery-image"><img src="../image/img-hero1.jpg" alt="Ảnh công trình 1"></div>
+            <div class="gallery-image"><img src="../image/img-hero2.jpg" alt="Ảnh công trình 2"></div>
+            <div class="gallery-image"><img src="../image/img-hero3.jpg" alt="Ảnh công trình 3"></div>
+
+            <p class="gallery-description">Khu vực phòng khách được bố trí mở, liên thông với bếp và phòng ăn, tận dụng
+                ánh sáng tự nhiên từ hệ cửa kính lớn giúp không gian rộng rãi và thông thoáng.</p>
+
+            <!-- Ảnh 4-6 -->
+            <div class="gallery-image"><img src="../image/img-hero4.jpg" alt="Ảnh công trình 4"></div>
+            <div class="gallery-image"><img src="../image/img-hero5.jpg" alt="Ảnh công trình 5"></div>
+            <div class="gallery-image"><img src="../image/img-hero1.jpg" alt="Ảnh công trình 6"></div>
+
+            <p class="gallery-description">Phòng ngủ chính được thiết kế tinh tế với nội thất gỗ và ánh sáng dịu nhẹ,
+                tạo cảm giác thư giãn tối đa sau một ngày làm việc.</p>
+
+            <!-- Ảnh 7-9 -->
+            <div class="gallery-image"><img src="../image/img-hero2.jpg" alt="Ảnh công trình 7"></div>
+            <div class="gallery-image"><img src="../image/img-hero3.jpg" alt="Ảnh công trình 8"></div>
+            <div class="gallery-image"><img src="../image/img-hero4.jpg" alt="Ảnh công trình 9"></div>
+        </div>
+    </div>
+    <script>
+        const projectUrls = [
+            'Project-1.html',
+            'Project-2.html',
+            'Project-3.html',
+            'Project-4.html'
+        ];
+
+        const currentUrl = window.location.pathname;
+        const currentIndex = projectUrls.findIndex(url => currentUrl.endsWith(url));
+
+        function goToPreviousProject() {
+            let prevIndex = currentIndex - 1;
+            if (prevIndex < 0) {
+                prevIndex = projectUrls.length - 1; // quay vòng về cuối
+            }
+            window.location.href = projectUrls[prevIndex];
+        }
+
+        function goToNextProject() {
+            let nextIndex = currentIndex + 1;
+            if (nextIndex >= projectUrls.length) {
+                nextIndex = 0; // quay vòng về đầu
+            }
+            window.location.href = projectUrls[nextIndex];
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Arco Home - Thiết kế và thi công trọn gói</title>
+
+</head>
+
+<body>
+    <header>
+        <!-- Box 1: Thông tin tên công ty & hotline -->
+        <div class="top-header">
+            <div class="company-name">ARCO HOME Design and Build > Giới thiệu</div>
+            <div class="hotline">Hotline: 0987.209.885</div>
+        </div>
+
+        <!-- Box 2: Logo + Điều hướng (floating) -->
+        <div class="nav-bar">
+            <div class="logo">ARCO HOME</div>
+            <div class="nav-fix">
+                <nav class="main-nav">
+                    <a href="./index.html">Trang chủ</a>
+                    <a style="color:#d4af37;" href="./about.html">Giới thiệu</a>
+                    <a href="./project.html">Công trình</a>
+                    <a href="./services.html">Báo giá</a>
+                    <a href="./forum.html">Diễn đàn</a>
+                </nav>
+            </div>
+        </div>
+        </div>
+        <!-- Scrip để nav bar luôn cố định ở đầu trang -->
+        <script>
+            const navbar = document.querySelector('.nav-bar');
+            const stickyOffset = navbar.offsetTop;
+
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset >= stickyOffset) {
+                    navbar.classList.add('fixed');
+                } else {
+                    navbar.classList.remove('fixed');
+                }
+            });
+        </script>
+
+    </header>
+
+</body>
+
+</html>

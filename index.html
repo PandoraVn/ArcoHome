@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Arco Home - Thiết kế và thi công trọn gói</title>
+
+</head>
+
+<body>
+    <header>
+        <!-- Box 1: Thông tin tên công ty & hotline -->
+        <div class="top-header">
+            <div class="company-name">ARCO HOME Design and Build > Trang chủ</div>
+            <div class="hotline">Hotline: 0987.209.885</div>
+        </div>
+
+        <!-- Box 2: Logo + Điều hướng (floating) -->
+        <div class="nav-bar">
+            <div class="logo">ARCO HOME</div>
+            <div class="nav-fix">
+                <nav class="main-nav">
+                    <a style="color:#d4af37;" href="#">Trang chủ</a>
+                    <a href="./about.html">Giới thiệu</a>
+                    <a href="./project.html">Công trình</a>
+                    <a href="./services.html">Báo giá</a>
+                    <a href="./forum.html">Diễn đàn</a>
+                </nav>
+            </div>
+        </div>
+        </div>
+        <!-- Scrip để nav bar luôn cố định ở đầu trang -->
+        <script>
+            const navbar = document.querySelector('.nav-bar');
+            const stickyOffset = navbar.offsetTop;
+
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset >= stickyOffset) {
+                    navbar.classList.add('fixed');
+                } else {
+                    navbar.classList.remove('fixed');
+                }
+            });
+        </script>
+    </header>
+    <!-- Hero section -->
+    <section class="hero-section">
+        <div class="slider">
+            <div class="slide active">
+                <img src="./image/img-hero1.jpg" alt="Slide 1">
+                <div class="slide-caption">
+                    <h2>Công trình 1</h2>
+                    <p>Design by ARCO HOME</p>
+                    <a href="./project_completed/Project-1.html" target="_blank" class="btn">Tìm hiểu thêm</a>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="./image/img-hero2.jpg" alt="Slide 2">
+                <div class="slide-caption">
+                    <h2>Công trình 2</h2>
+                    <p>Design by ARCO HOME</p>
+                    <a href="#" class="btn">Tìm hiểu thêm</a>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="./image/img-hero3.jpg" alt="Slide 3">
+                <div class="slide-caption">
+                    <h2>Công trình 3</h2>
+                    <p>Design by ARCO HOME</p>
+                    <a href="#" class="btn">Tìm hiểu thêm</a>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="./image/img-hero4.jpg" alt="Slide 4">
+                <div class="slide-caption">
+                    <h2>Công trình 4</h2>
+                    <p>Design by ARCO HOME</p>
+                    <a href="#" class="btn">Tìm hiểu thêm</a>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="./image/img-hero5.jpg" alt="Slide 5">
+                <div class="slide-caption">
+                    <h2>Công trình 5</h2>
+                    <p>Design by ARCO HOME</p>
+                    <a href="#" class="btn">Tìm hiểu thêm</a>
+                </div>
+            </div>
+
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+
+            <div class="dots-container">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+                <span class="dot" data-index="3"></span>
+                <span class="dot" data-index="4"></span>
+            </div>
+        </div>
+    </section>
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+                dots[i].classList.toggle('active', i === index);
+            });
+            currentIndex = index;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            const newIndex = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(newIndex);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            const newIndex = (currentIndex + 1) % slides.length;
+            showSlide(newIndex);
+        });
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.dataset.index);
+                showSlide(index);
+            });
+        });
+    </script>
+    <!-- Section Intro -->
+    <section class="intro-section">
+        <div class="intro-container">
+            <div class="intro-video">
+                <video width="100%" height="100%" autoplay muted loop playsinline>
+                    <source src="./video/video-intro.mp4" type="video/mp4">
+                    Trình duyệt của bạn không hỗ trợ video HTML5.
+                </video>
+            </div>
+            <div class="intro-text">
+                <h2>ARCO HOME - KIẾN TẠO KHÔNG GIAN SỐNG</h2>
+                <p>
+                    ARCO HOME là đơn vị thiết kế & thi công nhà ở dân dụng trọn gói, chuyên nghiệp và đáng tin cậy. Với
+                    triết lý “Chất lượng – Tiến độ – Chỉn chu – Minh bạch”, chúng tôi đồng hành cùng khách hàng từ ý
+                    tưởng đến hiện thực, mang đến những ngôi nhà không chỉ đẹp về thẩm mỹ, tối ưu về công năng mà còn
+                    vững chắc trong từng kết cấu.
+                </p>
+                <p>
+                    <strong>Sứ mệnh:</strong> Kiến tạo nên những không gian sống xanh, công năng, thẩm mỹ, bền vững và
+                    mang đậm dấu ấn riêng cho mỗi gia chủ.
+                </p>
+                <p>
+                    <strong>Tầm nhìn:</strong> Đến năm 2030 ARCO HOME sẽ trở thành đơn vị thi công dân dụng hàng đầu
+                    Việt Nam.
+                </p>
+                <p><strong>Giá trị cốt lõi:</strong> Khách
+                    hàng là trung tâm – Nhân viên là tài sản – Không ngừng học hỏi – Sáng tạo để thành công – Cho đi để
+                    nhận lại.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Section 1: Giới thiệu công ty -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-box">
+                <a href="founder.html">
+                    <img src="./image/img-founder.jpg" alt="Founder">
+                    <div class="about-overlay">
+                        <div>About Founder</div>
+                    </div>
+                </a>
+            </div>
+            <div class="about-box">
+                <a href="team.html">
+                    <img src="./image/img-hero2.jpg" alt="Team">
+                    <div class="about-overlay">
+                        <div>About ARCO HOME</div>
+                    </div>
+                </a>
+            </div>
+            <div class="about-box">
+                <a href="projects.html">
+                    <img src="./image/img-hero3.jpg" alt="Project">
+                    <div class="about-overlay">
+                        <div>Achived</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- HTML: Section 2 - Các Dự Án Tiêu Biểu -->
+    <section class="section-featured-projects">
+        <div class="project-tabs">
+            <div class="project-tab active" data-tab="design">Mẫu thiết kế</div>
+            <div class="project-tab" data-tab="construction">Dự án thi công</div>
+        </div>
+
+        <div class="project-slide" id="design-slide">
+            <button class="slide-left">‹</button>
+            <div class="slide-wrapper">
+                <!-- 10 công trình mẫu thiết kế -->
+                <div class="project-card"><img src="./image/img-hero2.jpg" alt="Project 1">
+                    <div class="project-info">
+                        <h4>Công trình nhà anh Cường</h4>
+                        <p><strong>Địa điểm:</strong> Hà Nội - Diện tích: 60m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="project-card"><img src="./image/img-hero3.jpg" alt="Project 2">
+                    <div class="project-info">
+                        <h4>Công trình 2</h4>
+                        <p>Hải Phòng - 95m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="project-card"><img src="./image/img-hero4.jpg" alt="Project 3">
+                    <div class="project-info">
+                        <h4>Công trình 3</h4>
+                        <p>Đà Nẵng - 110m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="project-card"><img src="./image/img-hero5.jpg" alt="Project 4">
+                    <div class="project-info">
+                        <h4>Công trình 4</h4>
+                        <p>Huế - 130m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="project-card"><img src="./image/img-hero1.jpg" alt="Project 5">
+                    <div class="project-info">
+                        <h4>Công trình 5</h4>
+                        <p>Nha Trang - 140m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="project-card"><img src="./image/img-hero2.jpg" alt="Project 6">
+                    <div class="project-info">
+                        <h4>Công trình 6</h4>
+                        <p>TP.HCM - 150m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="project-card"><img src="./image/img-hero1.jpg" alt="Project 7">
+                    <div class="project-info">
+                        <h4>Công trình 7</h4>
+                        <p>Biên Hòa - 115m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="project-card"><img src="./image/img-hero3.jpg" alt="Project 8">
+                    <div class="project-info">
+                        <h4>Công trình 8</h4>
+                        <p>Bình Dương - 125m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="project-card"><img src="./image/img-hero4.jpg" alt="Project 9">
+                    <div class="project-info">
+                        <h4>Công trình 9</h4>
+                        <p>Vũng Tàu - 105m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="project-card"><img src="./image/img-hero5.jpg" alt="Project 10">
+                    <div class="project-info">
+                        <h4>Công trình 10</h4>
+                        <p>Đà Lạt - 135m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            <button class="slide-right">›</button>
+        </div>
+
+        <div class="project-slide" id="construction-slide" style="display: none;">
+            <button class="slide-left">‹</button>
+            <div class="slide-wrapper">
+                <!-- 10 công trình thi công -->
+                <div class="project-card"><img src="./image/img-hero1.jpg" alt="Project A">
+                    <div class="project-info">
+                        <h4>Công trình 1</h4>
+                        <p>TP.HCM - 150m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="project-card"><img src="./image/img-hero2.jpg" alt="Project B">
+                    <div class="project-info">
+                        <h4>Công trình 2</h4>
+                        <p>Hà Nội - 110m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="project-card"><img src="./image/img-hero3.jpg" alt="Project A">
+                    <div class="project-info">
+                        <h4>Công trình 3</h4>
+                        <p>TP.HCM - 150m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="project-card"><img src="./image/img-hero4.jpg" alt="Project B">
+                    <div class="project-info">
+                        <h4>Công trình 4</h4>
+                        <p>Hà Nội - 110m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="project-card"><img src="./image/img-hero5.jpg" alt="Project A">
+                    <div class="project-info">
+                        <h4>Công trình 5</h4>
+                        <p>TP.HCM - 150m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="project-card"><img src="./image/img-hero1.jpg" alt="Project B">
+                    <div class="project-info">
+                        <h4>Công trình 6</h4>
+                        <p>Hà Nội - 110m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="project-card"><img src="./image/img-hero2.jpg" alt="Project A">
+                    <div class="project-info">
+                        <h4>Công trình 7</h4>
+                        <p>TP.HCM - 150m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="project-card"><img src="./image/img-hero3.jpg" alt="Project B">
+                    <div class="project-info">
+                        <h4>Công trình 8</h4>
+                        <p>Hà Nội - 110m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="project-card"><img src="./image/img-hero4.jpg" alt="Project A">
+                    <div class="project-info">
+                        <h4>Công trình 9</h4>
+                        <p>TP.HCM - 150m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="project-card"><img src="./image/img-hero5.jpg" alt="Project B">
+                    <div class="project-info">
+                        <h4>Công trình 10</h4>
+                        <p>Hà Nội - 110m²</p><a href="#">Xem chi tiết</a>
+                    </div>
+                </div>
+                <!-- ... thêm các công trình khác -->
+            </div>
+            <button class="slide-right">›</button>
+        </div>
+    </section>
+    <!-- JavaScript cho Section 2: Chuyển tab và trượt slide -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const tabs = document.querySelectorAll(".project-tab");
+            const slides = document.querySelectorAll(".project-slide");
+
+            tabs.forEach((tab, index) => {
+                tab.addEventListener("click", () => {
+                    tabs.forEach((t) => t.classList.remove("active"));
+                    slides.forEach((s) => (s.style.display = "none"));
+                    tab.classList.add("active");
+                    slides[index].style.display = "flex";
+                });
+            });
+
+            document.querySelectorAll(".project-slide").forEach((container) => {
+                const left = container.querySelector(".slide-left");
+                const right = container.querySelector(".slide-right");
+                const wrapper = container.querySelector(".slide-wrapper");
+                const track = document.createElement("div");
+                track.classList.add("project-track");
+
+                // Move all cards into track
+                while (wrapper.firstChild) {
+                    track.appendChild(wrapper.firstChild);
+                }
+                wrapper.appendChild(track);
+
+                const cards = track.querySelectorAll(".project-card");
+                let currentIndex = 0;
+
+                function updateSlider() {
+                    const cardWidth = cards[0].offsetWidth + 20; // 20px gap
+                    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+                }
+
+                right.addEventListener("click", () => {
+                    if (currentIndex < cards.length - 4) {
+                        currentIndex++;
+                        updateSlider();
+                    }
+                });
+
+                left.addEventListener("click", () => {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateSlider();
+                    }
+                });
+
+                window.addEventListener("resize", updateSlider);
+            });
+        });
+    </script>
+    <!-- Section Giới thiệu dịch vụ -->
+    <section class="intro-section">
+        <div class="intro-container">
+
+            <div class="intro-text">
+                <h2>DỊCH VỤ CHÚNG TÔI CUNG CẤP</h2>
+
+                <div class="service-item">
+                    <div class="quote-mark">❝</div>
+                    <h3>THIẾT KẾ KIẾN TRÚC & NỘI THẤT</h3>
+                    <p>
+                        Những kiến trúc sư của chúng tôi có nhiều năm kinh nghiệm và có chuyên môn vững vàng.
+                        ARCO HOME có thể tự tin khẳng định chúng tôi có thể tư vấn thiết kế kiến trúc, nội thất cho tất
+                        cả
+                        các thể loại công trình, từ nhà dân dụng, biệt thự, khách sạn,... đến villa, resort.
+                    </p>
+                </div>
+
+                <div class="service-item">
+                    <div class="quote-mark">❝</div>
+                    <h3>THI CÔNG KIẾN TRÚC & NỘI THẤT</h3>
+                    <p>
+                        Nhà máy sản xuất được đầu tư nhiều về công nghệ trang thiết bị tiên tiến với 50 thợ lành nghề
+                        với nhiều năm kinh nghiệm trong lĩnh vực sản xuất và lắp đặt nội thất và kiến trúc.
+                    </p>
+                </div>
+            </div>
+            <div class="intro-video">
+                <video width="100%" height="100%" autoplay muted loop playsinline>
+                    <source src="./video/video-intro.mp4" type="video/mp4">
+                    Trình duyệt của bạn không hỗ trợ video HTML5.
+                </video>
+            </div>
+        </div>
+    </section>
+    <!-- Section 3: Form đặt lịch tư vấn -->
+    <section id="consultation-id" class="consultation-section">
+        <div class="consultation-overlay">
+            <div class="consultation-form-container">
+                <h2>ĐẶT LỊCH TƯ VẤN</h2>
+                <p class="subtitle">Vui lòng để lại thông tin để chúng tôi được phục vụ bạn</p>
+                <form class="consultation-form"
+                    action="https://script.google.com/macros/s/AKfycbzOqbH-6Aunu24LTVkBGuDrCqM2knmTmtkY8ilXMJ_oFV9RIrjKX7RlKiZrSugQWvCd/exec"
+                    method="POST">
+                    <div class="form-row">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="phone">Tel:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="message">Request:</label>
+                        <textarea id="message" name="message" rows="3" required></textarea>
+                    </div>
+                    <button type="submit">GỬI ĐI</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector(".consultation-form");
+            const inputs = form.querySelectorAll("input, textarea");
+            const submitBtn = form.querySelector("button[type='submit']");
+
+            function checkFormFilled() {
+                let allFilled = true;
+                inputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        allFilled = false;
+                    }
+                });
+
+                if (allFilled) {
+                    submitBtn.disabled = false;
+                    submitBtn.classList.add("active");
+                } else {
+                    submitBtn.disabled = true;
+                    submitBtn.classList.remove("active");
+                }
+            }
+
+            inputs.forEach(input => {
+                input.addEventListener("input", checkFormFilled);
+            });
+
+            checkFormFilled(); // kiểm tra ngay từ đầu
+        });
+    </script>
+    <!-- Reset form và hiển thị thông báo -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector(".consultation-form");
+            const inputs = form.querySelectorAll("input, textarea");
+            const submitBtn = form.querySelector("button[type='submit']");
+
+            function checkFormFilled() {
+                let allFilled = true;
+                inputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        allFilled = false;
+                    }
+                });
+
+                if (allFilled) {
+                    submitBtn.disabled = false;
+                    submitBtn.classList.add("active");
+                } else {
+                    submitBtn.disabled = true;
+                    submitBtn.classList.remove("active");
+                }
+            }
+
+            inputs.forEach(input => {
+                input.addEventListener("input", checkFormFilled);
+            });
+
+            checkFormFilled();
+
+            // Gửi dữ liệu mà không tải lại trang
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                fetch(form.action, {
+                    method: "POST",
+                    body: new FormData(form)
+                })
+                    .then(response => {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Gửi thành công!',
+                            text: 'Thông tin của bạn đã được gửi.',
+                            confirmButtonText: 'Đóng',
+                        });;
+                        form.reset();
+                        checkFormFilled();
+                    })
+                    .catch(error => {
+                        alert("Đã xảy ra lỗi khi gửi. Vui lòng thử lại.");
+                        console.error(error);
+                    });
+            });
+        });
+    </script>
+    <!-- Section Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>CÔNG TY TNHH ARCO HOME VIỆT NAM</h3>
+                <p>Địa chỉ: Tòa SA3, Vinhomes Smart City, Tây Mỗ, Nam Từ Liêm, Hà Nội</p>
+                <p>Hotline: <a href="tel:0987209885" style="color:#d4af37;">0987 209 885</a></p>
+                <p>Email: <a href="mailto:xaydungarcohome@gmail.com"
+                        style="color: #d4af37;">xaydungarcohome@gmail.com</a></p>
+                <p style="margin-top: 10px; font-size: 14px; color: #aaa;">&copy; 2025 ARCO HOME. All rights reserved.
+                </p>
+            </div>
+
+            <div class="footer-map">
+                <div class="footer-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3065.152943030669!2d105.73464477431641!3d21.002943980639916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134539b0b812f63%3A0x66e49b701bb252df!2sTo%C3%A0%20SA3%20-%20The%20Sakura!5e1!3m2!1svi!2s!4v1754057481864!5m2!1svi!2s"
+                        width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="social-connect">
+                <p>Kết nối với chúng tôi:</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Buttons -->
+        <div class="floating-button call-button">
+            <a href="tel:0987209885">LIÊN HỆ NGAY</a>
+        </div>
+        <div class="floating-button consult-button">
+            <a href="#consultation-id">ĐẶT LỊCH TƯ VẤN</a>
+        </div>
+    </footer>
+    <!-- Căn giữa trang khi cuộn đến vị trí -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const consultBtn = document.querySelector('.consult-button a');
+            const targetSection = document.querySelector('#consultation-id');
+
+            consultBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const offset = window.innerHeight / 2 - targetSection.offsetHeight / 2;
+                const y = targetSection.getBoundingClientRect().top + window.scrollY - offset;
+
+                window.scrollTo({
+                    top: y,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+:root {
+    --black: #000;
+    --white: #fff;
+    --gold: #d4af37;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--gold);
+    color: var(--black);
+}
+
+/* Box 1 - floating navigation */
+.nav-bar {
+    margin: 0 200px;
+    height: 50px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    background-color: var(--white);
+    position: fixed;
+    margin: 0 200px;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    z-index: 1000;
+}
+
+/* Logo ARCO HOME */
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold);
+    white-space: nowrap;
+}
+
+/* Style Body */
+.project-container {
+    display: flex;
+    margin: 0 200px;
+}
+
+.project-sidebar {
+    width: 30%;
+    position: fixed;
+    left: 200px;
+    height: 100vh;
+    top: 70px;
+    background-color: var(--white);
+    z-index: 1001;
+    box-sizing: border-box;
+}
+
+.project-info {
+    padding: 0 20px;
+}
+
+.project-info h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    font-size: 16px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.project-gallery {
+    position: relative;
+    padding: 20px 20px 0 20px;
+    margin-top: 70px;
+    margin-left: auto;
+    width: 59.5%;
+    background-color: #f4f4f4;
+    box-sizing: border-box;
+}
+
+.gallery-image {
+    width: 100%;
+}
+
+.gallery-description {
+    font-size: 15px;
+    color: #333;
+    font-style: italic;
+    margin: 50px;
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin-bottom: 20px;
+}
+
+
+/* Thanh điều hướng */
+.project-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+}
+
+.nav-arrow {
+    background-color: transparent;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.nav-arrow:hover {
+    color: var(--gold);
+}
+
+.project-title {
+    font-size: 18px;
+    font-weight: bold;
+}

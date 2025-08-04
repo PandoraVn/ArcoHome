@@ -1,0 +1,786 @@
+:root {
+    --black: #000;
+    --white: #fff;
+    --gold: #d4af37;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--black);
+    color: var(--white);
+}
+
+/* Box 1 - top header */
+.top-header {
+    padding: 10px 40px;
+    background-color: var(--black);
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    border-bottom: 2px solid #444;
+}
+
+/* Box 2 - floating navigation */
+.nav-bar {
+    top: 38.4px;
+    z-index: 10;
+    background-color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+}
+
+/* Logo ARCO HOME */
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold);
+    white-space: nowrap;
+}
+
+/* Menu điều hướng */
+.main-nav {
+    display: flex;
+    gap: 60px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: auto;
+}
+
+/* "nav" bar scrip fixed on top */
+.nav-bar.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Xóa gạch chân cho "nav" bar */
+.main-nav a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+/* Thêm gạch chân và hiển thị màu khi trỏ chuột vào "nav" bar */
+.main-nav a:hover {
+    text-decoration: underline;
+    color: var(--gold);
+}
+
+/* Section 1: Hero section */
+.hero-section {
+    width: 100%;
+    height: 87vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    z-index: 0;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Caption ở góc trái bên dưới */
+.slide-caption {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    color: var(--white);
+    z-index: 2;
+    text-align: left;
+}
+
+.slide-caption h2 {
+    font-size: 30px;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.slide-caption p {
+    margin: 6px 0;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    color: var(--white);
+}
+
+.slide-caption .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 2px solid var(--white);
+    border-radius: 3px;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 18px;
+    font-family: sans-serif;
+    transition: background 0.3s;
+}
+
+.slide-caption .btn:hover {
+    background: rgba(0, 0, 0, 0.292);
+    color: var(--gold);
+    text-decoration: underline;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    color: var(--white);
+    border: none;
+    padding: 16px;
+    cursor: pointer;
+    font-size: 60px;
+    z-index: 2;
+}
+
+.prev:hover,
+.next:hover {
+    color: var(--gold);
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.dots-container {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 3;
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 6px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: var(--gold);
+}
+
+/* Intro Section */
+.intro-section {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 40px 40px;
+}
+
+.intro-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.intro-video {
+    display: flex;
+    flex: 1;
+    min-width: 300px;
+}
+
+.intro-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.intro-text h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 25px;
+    margin-bottom: 15px;
+    color: var(--white);
+}
+
+.intro-text p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+/* Section 1: Giới thiệu công ty */
+.about-section {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 40px;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 2200px;
+    margin: auto;
+}
+
+.about-box {
+    position: relative;
+    flex: 1;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+}
+
+/* Ảnh zoom nhẹ khi hover */
+.about-box img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.about-box:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+    filter: brightness(1.2);
+    /* Zoom nhẹ */
+}
+
+.about-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 1;
+}
+
+.about-overlay div {
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.about-overlay:hover div {
+    color: var(--gold);
+}
+
+/* CSS cho Section 2: Các dự án tiêu biểu */
+.section-featured-projects {
+    padding: 40px;
+    background-color: var(--black);
+    color: var(--white);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.project-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.project-tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 2px solid var(--white);
+    border-radius: 3px;
+    background-color: transparent;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.project-tab.active,
+.project-tab:hover {
+    color: var(--gold);
+}
+
+.project-slide {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.slide-wrapper {
+    overflow: hidden;
+    width: 100%;
+    padding-right: 60px;
+}
+
+.project-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 20px;
+}
+
+.project-card {
+    flex: 0 0 25%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.03);
+}
+
+.project-info {
+    padding: 5px;
+    background-color: var(--white);
+}
+
+.project-info a:hover {
+    background-color: var(--gold);
+}
+
+.project-info h4 {
+    margin: 5px;
+    font-size: 18px;
+    color: var(--black);
+}
+
+.project-info p {
+    margin: 5px;
+    font-size: 14px;
+    color: var(--black);
+}
+
+.project-info a {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 10px;
+    color: var(--black);
+    text-decoration: none;
+    font-size: 12px;
+    border: 1px solid var(--black);
+    border-radius: 3px;
+    font-weight: 700;
+}
+
+.slide-left,
+.slide-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    color: var(--white);
+    border: none;
+    padding: 16px;
+    cursor: pointer;
+    font-size: 60px;
+    z-index: 2;
+}
+
+.slide-left:hover,
+.slide-right:hover {
+    color: var(--gold);
+}
+
+.slide-left {
+    left: 0;
+}
+
+.slide-right {
+    right: 0;
+}
+
+/* Section 3: Đặt lịch tư vấn */
+.consultation-section {
+    background-image: url(./image/img-hero1.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 40px;
+    color: var(--white);
+}
+
+.consultation-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.consultation-form-container {
+    background-color: var(--white);
+    color: var(--black);
+    max-width: 400px;
+    width: 100%;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.consultation-form-container h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.consultation-form-container .subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 16px;
+    color: #333;
+}
+
+.consultation-form .form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.consultation-form label {
+    width: 140px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.consultation-form input,
+.consultation-form textarea {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+}
+
+.consultation-form textarea {
+    resize: vertical;
+}
+
+.consultation-form button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px 0;
+    background-color: var(--black);
+    color: var(--white);
+    border: none;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.consultation-form button:hover {
+    background-color: #333;
+}
+
+.consultation-form button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.consultation-form button.active {
+    background-color: #000;
+    opacity: 1;
+}
+
+/* Footer section */
+.site-footer {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 40px 40px;
+    position: relative;
+    font-family: sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 100%;
+    margin: auto;
+
+}
+
+.footer-info,
+.footer-map,
+.footer-social {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-map {
+    display: flex;
+    justify-content: center;
+}
+
+/* Nút Liên hệ - Tư vấn (Destop) */
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 150px;
+    height: 20px;
+    color: var(--white);
+    padding: 12px 20px;
+    font-weight: bold;
+    z-index: 10;
+    transition: background 0.3s;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.floating-button a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.call-button {
+    bottom: 80px;
+    background-color: var(--black);
+    border: 1px solid var(--white);
+    border-radius: 3px;
+}
+
+.consult-button {
+    background-color: var(--black);
+    border: 1px solid var(--white);
+    border-radius: 3px;
+}
+
+.floating-button a:hover {
+    color: var(--gold);
+    text-decoration: underline;
+}
+
+/* Nút Liên hệ - Tư vấn (Mobile) */
+@media (max-width: 768px) {
+    .floating-button {
+        position: fixed;
+        bottom: 0;
+        width: 50%;
+        height: auto;
+        padding: 12px 20px;
+        right: auto;
+        /* Reset */
+        left: 0;
+        /* Tạm thời đặt cả 2 bên ở 0, sau sẽ chia từng nút */
+        text-align: center;
+    }
+
+    .call-button {
+        left: 0;
+        box-sizing: border-box;
+    }
+
+    .consult-button {
+        left: 50%;
+        right: 0;
+        box-sizing: border-box;
+    }
+
+}
+
+/* Kết nối với chúng tôi */
+.social-connect {
+    display: flex;
+    gap: 30px;
+    text-align: center;
+    color: var(--white);
+}
+
+.social-connect p {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.social-icons a {
+    color: var(--white);
+    font-size: 40px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--gold);
+    transform: scale(1.05);
+}
+
+/* Section Giới thiệu dịch vụ */
+.service-item {
+    margin-bottom: 30px;
+    position: relative;
+    padding-left: 30px;
+}
+
+.service-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.service-item p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.quote-mark {
+    font-size: 36px;
+    color: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: 1;
+}
+
+/* Trang Công trình (Phần thân) */
+.project-banner {
+    border-top: 2px solid #444;
+    border-bottom: 2px solid #444;
+    background-image: url('./image/img-hero1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-banner h1 {
+    font-size: 60px;
+    color: var(--gold);
+    text-shadow: 1px 1px 2px #000;
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px 100px;
+    background-color: var(--black);
+}
+
+/* Chuyển về 1 cột khi mở trên điện thoại */
+@media (max-width: 1024px) {
+    .project-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .project-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+.project-item {
+    cursor: pointer;
+    border-bottom: 1px solid #444;
+    overflow: hidden;
+    transition: transform 0.2s;
+    margin-bottom: 20px;
+}
+
+.project-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.project-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.project-item h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    color: var(--white);
+    text-align: center;
+}
+
+.project-item p {
+    margin: 0 0 20px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+    font-size: 14px;
+    color: var(--white);
+}
+
+.project-item-div {
+    padding: 16px;
+}
+
+.load-more-container {
+    text-align: center;
+    margin: 0px 100px 40px 100px;
+    background-color: #444;
+}
+
+#loadMore {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #444;
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+}
+
+#loadMore:hover {
+    color: var(--gold);
+}
