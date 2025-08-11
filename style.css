@@ -450,7 +450,8 @@ body {
 }
 
 .consultation-form-container {
-    background-color: var(--white);
+    background-color: #d4af375e;
+    backdrop-filter: blur(10px);
     color: var(--black);
     max-width: 400px;
     width: 100%;
@@ -465,11 +466,11 @@ body {
     font-size: 28px;
 }
 
-.consultation-form-container .subtitle {
+.subtitle {
     text-align: center;
     margin-bottom: 30px;
     font-size: 16px;
-    color: #333;
+    color: var(--black);
 }
 
 .consultation-form .form-row {
